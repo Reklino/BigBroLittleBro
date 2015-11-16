@@ -30,46 +30,50 @@ Below are some basic possible table structures for reference. These will, of cou
 *blurbs*
 
 id | slack_blurb_id | topic_id | user_id | created_at | updated_at
-**32-bit integer** | **32-bit integer** | **32-bit integer** | **32-bit integer** | **Timestamp** | **Timestamp**
+-------- | -------- | -------- | -------- | -------- | --------
+32-bit integer | 32-bit integer | 32-bit integer | 32-bit integer | Timestamp | Timestamp
 
 Relationships:
 * Has many comments
 * Belongs to one topic
 * Belongs to one user
 
---
+--------
 
 *topics*
 
 id | slack_topic_id | user_id | created_at | updated_at
-**32-bit integer** | **32-bit integer** | **32-bit integer** | **Timestamp** | **Timestamp**
+-------- | -------- | -------- | -------- | --------
+32-bit integer | 32-bit integer | 32-bit integer | Timestamp | Timestamp
 
 Relationships
 * Has many blurbs
 * Belongs to one user
 
---
+--------
 
 *comments*
 
 `may need to be polymorphic if we include blog posts as well as topics`
 
 id | user_id | blurb_id | created_at | updated_at
-**32-bit integer** | **32-bit integer** | **32-bit integer** | **Timestamp** | **Timestamp**
+-------- | -------- | -------- | -------- | --------
+32-bit integer | 32-bit integer | 32-bit integer | Timestamp | Timestamp
 
 Relationships:
 * Belongs to one user
 * Belongs to one blurb
 * Belongs to one topic (unnecessary, but would be nice to have)
 
---
+--------
 
 *users*
 
 `need to work on this one after looking more at Oauth 2.0 of course...`
 
 id | name | created_at | updated_at
-**32-bit integer** | **String** | **Timestamp** | **Timestamp**
+-------- | -------- | -------- | --------
+32-bit integer | String | Timestamp | Timestamp
 
 Relationships:
 * Has many topics
